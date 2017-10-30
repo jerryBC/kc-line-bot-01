@@ -90,20 +90,20 @@ namespace AspNetCoreDemoApp.Controllers
             {
                 using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
                 {
-                    JsonSerializerSettings settings = new JsonSerializerSettings()
-                    {
-                        ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                        NullValueHandling = NullValueHandling.Ignore
-                    };
+                    //JsonSerializerSettings settings = new JsonSerializerSettings()
+                    //{
+                    //    ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                    //    NullValueHandling = NullValueHandling.Ignore
+                    //};
 
-                    settings.Converters.Add(new StringEnumConverter(true));
+                    //settings.Converters.Add(new StringEnumConverter(true));
 
-                    StringContent content = new StringContent(
-                        JsonConvert.SerializeObject(reader.ReadToEndAsync(), settings),
-                        Encoding.UTF8, "application/json");
+                    //StringContent content = new StringContent(
+                    //    JsonConvert.SerializeObject(reader.ReadToEndAsync(), settings),
+                    //    Encoding.UTF8, "application/json");
                     //var result = await client.PostAsync("https://13.113.36.152/api/LineMessages", content);
                     
-                        return await client.PostAsync("https://13.113.36.152/api/LineMessages", content);
+                        return await client.PostAsync("https://13.113.36.152/api/LineMessages", reader.ReadToEndAsync());
                     
                 }
 
