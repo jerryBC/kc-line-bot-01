@@ -102,8 +102,11 @@ namespace AspNetCoreDemoApp.Controllers
                     //    JsonConvert.SerializeObject(reader.ReadToEndAsync(), settings),
                     //    Encoding.UTF8, "application/json");
                     //var result = await client.PostAsync("https://13.113.36.152/api/LineMessages", content);
-                    
-                        await client.PostAsync("https://13.113.36.152/api/LineMessages", await reader.ReadToEndAsync());
+                    StringContent content = new StringContent(
+                        JsonConvert.SerializeObject(reader.ReadToEndAsync()),
+                        Encoding.UTF8, "application/json");
+						
+                        await client.PostAsync("https://13.113.36.152/api/LineMessages", content);
 						
                     
                 }
