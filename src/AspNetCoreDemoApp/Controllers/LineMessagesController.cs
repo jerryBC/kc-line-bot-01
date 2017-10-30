@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Net;
 using Newtonsoft.Json;
 using System.Security.Cryptography;
@@ -19,6 +20,14 @@ namespace AspNetCoreDemoApp.Controllers
 	[Route("api/[controller]")]
 	public class LineMessagesController : Controller
 	{
+		private HttpClient GetClient()
+        {
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+
+            return client;
+        }
+	
 		/// <summary>
 		/// POST: api/Messages
 		/// Receive a message from a user and reply to it
@@ -249,12 +258,6 @@ namespace AspNetCoreDemoApp.Controllers
 			}
 		}
 		
-		private HttpClient GetClient()
-        {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-
-            return client;
-        }
+		
 	}
 }
