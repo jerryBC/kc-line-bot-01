@@ -248,5 +248,13 @@ namespace AspNetCoreDemoApp.Controllers
 				await lineClient.PushAsync(lineEvent.CreatePush(message: (TextMessage)replyMessage));
 			}
 		}
+		
+		private HttpClient GetClient()
+        {
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+
+            return client;
+        }
 	}
 }
