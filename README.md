@@ -28,7 +28,7 @@ heroku buildpacks:add --index 1 heroku/nodejs
 
 Click the button below to set up this sample app on Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/jerryBC/kc-line-bot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/jerryBC/kc-line-bot-01)
 
 ## Blog posts
 
