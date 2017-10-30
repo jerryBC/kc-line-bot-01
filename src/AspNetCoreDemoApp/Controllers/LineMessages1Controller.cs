@@ -103,7 +103,8 @@ namespace AspNetCoreDemoApp.Controllers
                     //    Encoding.UTF8, "application/json");
                     //var result = await client.PostAsync("https://13.113.36.152/api/LineMessages", content);
                     
-                        return await client.PostAsync("https://13.113.36.152/api/LineMessages", reader.ReadToEndAsync());
+                        await client.PostAsync("https://13.113.36.152/api/LineMessages", reader.ReadToEndAsync());
+						return new HttpResponseMessage(HttpStatusCode.OK);
                     
                 }
 
